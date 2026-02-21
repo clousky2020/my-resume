@@ -19,7 +19,7 @@ export const skills = [
   },
   {
     category: '前端技术',
-    items: ['Vue.js', 'JavaScript/TypeScript', 'HTML/CSS', '微信小程序'],
+    items: ['Vue.js', 'JavaScript/TypeScript', 'HTML/CSS'],
   },
   {
     category: '工具和其他',
