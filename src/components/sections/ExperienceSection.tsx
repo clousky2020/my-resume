@@ -40,9 +40,9 @@ export default function ExperienceSection() {
                 </h4>
                 {exp.achievements.map((achievement, achIndex) => (
                   <div key={achIndex} className="flex items-start">
-                    <span className="text-blue-600 dark:text-blue-400 mr-3 mt-1">
-                      ✓
-                    </span>
+                    <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
                     <span className="text-gray-600 dark:text-gray-300">
                       {achievement}
                     </span>

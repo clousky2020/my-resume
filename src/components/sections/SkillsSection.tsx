@@ -10,30 +10,23 @@ export default function SkillsSection() {
           专业技能
         </h2>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {skills.map((skillGroup, groupIndex) => (
-            <div key={groupIndex} className="mb-12">
-              <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-200">
+            <div
+              key={groupIndex}
+              className="bg-gray-50 dark:bg-gray-900 rounded-xl p-6 md:p-8"
+            >
+              <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-200 text-center">
                 {skillGroup.category}
               </h3>
-              <div className="space-y-4">
+              <div className="flex flex-wrap gap-3 justify-center">
                 {skillGroup.items.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">
-                        {skill.name}
-                      </span>
-                      <span className="text-gray-600 dark:text-gray-400">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
-                      <div
-                        className="bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-500"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
+                  <span
+                    key={skillIndex}
+                    className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
+                  >
+                    {skill}
+                  </span>
                 ))}
               </div>
             </div>
