@@ -65,23 +65,23 @@ export const experiences = [
 export const projects = [
   {
     name: '政务数字化平台',
+    slug: 'gov-platform',
     description: '大型政务系统，包含多个子模块，服务政府及国有企业数字化转型。系统采用Ruby on Rails + Vue.js技术栈，支持高并发访问，已稳定运行超过4年。',
     technologies: ['Ruby on Rails', 'Vue.js', 'PostgreSQL', 'Redis', 'Docker'],
-    link: '#',
     image: '/images/project1.jpg',
   },
   {
     name: '公共服务小程序',
+    slug: 'mini-program',
     description: '用于支撑高并发、高公开性的线上公共服务活动（如摇号），活动期间累计服务用户超1万人次，保障了零重大事故。',
     technologies: ['微信小程序', 'Node.js', 'Redis'],
-    link: '#',
     image: '/images/project2.jpg',
   },
   {
     name: 'AI应用原型项目',
+    slug: 'ai-prototype',
     description: '创新型AI应用项目的原型开发与快速迭代，在需求高度不确定的情况下，与客户进行了超过50轮次的高频沟通与演示，深度磨合产品形态。',
     technologies: ['Ruby on Rails', 'Vue.js', 'AI API', 'PostgreSQL'],
-    link: '#',
     image: '/images/project3.jpg',
   },
 ]

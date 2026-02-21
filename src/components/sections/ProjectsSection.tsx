@@ -1,6 +1,7 @@
 'use client'
 
 import { projects } from '@/lib/data'
+import Link from 'next/link'
 
 export default function ProjectsSection() {
   return (
@@ -12,12 +13,13 @@ export default function ProjectsSection() {
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div
+            <Link
               key={index}
-              className="bg-gray-50 dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              href={`/projects/${project.slug}`}
+              className="group bg-gray-50 dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 block"
             >
               {/* 项目图片 */}
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center">
+              <div className="h-48 bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                 <span className="text-white text-6xl font-bold">
                   {project.name.charAt(0)}
                 </span>
@@ -25,16 +27,16 @@ export default function ProjectsSection() {
 
               {/* 项目信息 */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {project.name}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
                   {project.description}
                 </p>
 
                 {/* 技术标签 */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, techIndex) => (
+                  {project.technologies.slice(0, 4).map((tech, techIndex) => (
                     <span
                       key={techIndex}
                       className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-sm rounded-full"
@@ -42,18 +44,18 @@ export default function ProjectsSection() {
                       {tech}
                     </span>
                   ))}
+                  {project.technologies.length > 4 && (
+                    <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-sm rounded-full">
+                      +{project.technologies.length - 4}
+                    </span>
+                  )}
                 </div>
 
-                {/* 项目链接 */}
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline font-medium"
-                >
-                  查看项目
+                {/* 查看详情提示 */}
+                <div className="flex items-center text-blue-600 dark:text-blue-400 text-sm font-medium">
+                  查看详情
                   <svg
-                    className="w-4 h-4 ml-1"
+                    className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -62,13 +64,20 @@ export default function ProjectsSection() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      d="M9 5l7 7-7 7"
                     />
                   </svg>
-                </a>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
+        </div>
+
+        {/* 提示信息 */}
+        <div className="text-center mt-12">
+          <p className="text-gray-500 dark:text-gray-400 text-sm">
+            点击卡片查看项目详细信息
+          </p>
         </div>
       </div>
     </section>
