@@ -24,7 +24,7 @@ export default function HeroSection() {
             {profile.title}
           </p>
           <p className="text-gray-500 dark:text-gray-400 mb-6">
-            {profile.location} · {profile.email}
+            {profile.email}
           </p>
 
           {/* 个人简介 */}
